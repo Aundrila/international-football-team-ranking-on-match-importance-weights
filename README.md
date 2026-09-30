@@ -2,7 +2,7 @@
 
 International football ranking systems do not treat all matches equally. In the FIFA weighting scheme used in the framework studied here, matches receive different importance factors depending on the competition type: **1.0 for Friendly matches, 2.5 for Qualifiers, 3.0 for Confederation Championships, and 4.0 for FIFA World Cup matches**. These weights are intended to reflect the idea that results from more competitive tournaments should contribute more strongly to the estimation of a team's current strength.
 
-This project investigates whether the importance assigned to different types of international football matches can be **learned from data rather than kept fixed**.
+This project investigates whether more appropriate match-importance weights can be identified from historical data to improve the predictive accuracy of international football ranking models.
 
 It extends the maximum-likelihood ranking framework of **Ley, Van de Wiele, and Van Eetvelde**, *Ranking soccer teams on the basis of their current strength: A comparison of maximum likelihood approaches*. Their framework combines statistical team-strength models with **time decay** and **match-importance weighting**, so that recent matches and more important competitions have greater influence on the estimated strength of a team.
 
@@ -307,58 +307,6 @@ This illustrates a broader modelling principle:
 
 ---
 
-## 12. Repository Structure
-
-```text
-Aundrila_Acharjee_Team_Ranking/
-│
-├── dataset/
-│   └── results.csv
-│
-├── notebooks/
-│   ├── bivariate_poisson.ipynb
-│   ├── Indipendant_Poisson.ipynb
-│   └── thurstone.ipynb
-│
-├── results/
-│   ├── grid_search_bivariate.csv
-│   ├── grid_search_independent_poisson_results.csv
-│   └── grid_search_thurstone_mosteller_results.csv
-│
-└── README.md
-```
-
-### `dataset/`
-
-Contains the international football match data used for the analysis.
-
-### `notebooks/`
-
-Contains the implementations of the three ranking approaches:
-
-- Independent Poisson
-- Bivariate Poisson
-- Thurstone–Mosteller
-
-Each notebook performs the complete model-specific analysis and evaluates alternative match-importance weights.
-
-### `results/`
-
-Contains the grid-search results for each model. Each CSV records the tested importance-weight combinations and their corresponding average RPS.
-
----
-
-## 13. Future Extensions
-
-Several extensions would be useful for further analysis:
-
-- treat the UEFA Nations League and similar competitions as an additional match category;
-- investigate finer or continuous optimisation of the importance weights;
-- evaluate uncertainty in RPS differences using resampling or bootstrap methods;
-- study whether the preferred weighting structure changes across different historical periods;
-- examine whether tournament importance interacts with team strength, region, or match location.
-
----
 
 ## Reference
 
